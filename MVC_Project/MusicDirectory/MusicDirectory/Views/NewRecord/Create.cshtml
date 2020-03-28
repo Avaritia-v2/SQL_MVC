@@ -1,0 +1,64 @@
+﻿@model MusicDirectory.Models.MusClass
+
+@{
+    ViewData["Title"] = "Музыканты";
+}
+
+<h1>Музыканты</h1>
+
+<h4>Музыкальный справочник</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group">
+                <label asp-for="ID_Musician" class="control-label"></label>
+                <input asp-for="ID_Musician" class="form-control" />
+                <span asp-validation-for="ID_Musician" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                @*<label asp-for="FirstName" class="control-label"></label>*@
+                <i>Имя</i>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @*<label asp-for="MiddleName" class="control-label"></label>*@
+                <i>Второе Имя (MiddleName) если имеется</i>
+                <input asp-for="MiddleName" class="form-control" />
+                <span asp-validation-for="MiddleName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @*<label asp-for="Patronymic" class="control-label"></label>*@
+                <i>Отчество Если имеется</i>
+                <input asp-for="Patronymic" class="form-control" />
+                <span asp-validation-for="Patronymic" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @*<label asp-for="LastName" class="control-label"></label>*@
+                <i>Фамилия</i>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @*<label asp-for="BirthDate" class="control-label"></label>*@
+                <i>Дата Рождения</i>
+                <input asp-for="BirthDate" class="form-control" />
+                <span asp-validation-for="BirthDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Добавить" class="btn btn-primary" />
+            </div>
+            @ViewBag.message
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
